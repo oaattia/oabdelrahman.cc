@@ -207,7 +207,7 @@
         .profile-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: none;
         }
 
         /* Sections */
@@ -388,10 +388,6 @@
     <nav>
         <div class="nav-content">
             <a href="#" class="logo" data-i18n="logo">OA</a>
-            <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="ar">AR</button>
-            </div>
         </div>
     </nav>
 
@@ -399,10 +395,14 @@
         <!-- Hero -->
         <section class="hero">
             <div class="hero-content">
-                <h1 data-i18n="name">Osama Abderahman</h1>
-                <p class="subtitle" data-i18n="title">Senior Software Engineer</p>
-                <p data-i18n="intro">Building scalable, robust systems that solve real problems. Passionate about
-                    backend development, system design, and clean code.</p>
+                <h1 data-i18n="name">Hey, I’m Osama 👋</h1>
+                <p data-i18n="intro">
+I’m a software engineer who enjoys building and improving backend systems, especially when things get a bit complex and need to scale. Over the years, I’ve worked with both PHP and Java, moving between monoliths, microservices, and distributed systems, and learning a lot along the way.</p>
+
+<p data-i18n="intro">I’m currently based in Germany, working as a Senior Software Engineer, where I spend most of my time improving system performance, migrating applications to the cloud (mostly AWS), and working with event-driven architectures using tools like Kafka. I’ve had the chance to work with technologies such as Laravel, Symfony, Spring Boot, and various DevOps tools, depending on what the problem actually needs.</p>
+
+<p data-i18n="intro">When I’m not working, I like reading, writing about tech from time to time, and staying active. If you’d like to chat about backend engineering, distributed systems, or just share experiences, feel free to reach out and say hi.</p>
+                </p>
                 <div class="cta-buttons">
                     <a href="https://www.linkedin.com/in/oaattia/" target="_blank" class="social-link" title="LinkedIn">
                         <i class="fab fa-linkedin"></i>
@@ -424,73 +424,11 @@
 
     <!-- Footer -->
     <footer>
-        <p data-i18n="footer">© {{ new Date().getFullYear() }} Osama Abderahman. All rights reserved.</p>
+        <p data-i18n="footer">© <span id="current-year">2026</span> Osama Abderahman. All rights reserved.</p>
     </footer>
 
     <script>
-        const translations = {
-            en: {
-                logo: "OA",
-                name: "Osama Abderahman",
-                title: "Senior Software Engineer",
-                intro: "Building scalable, robust systems that solve real problems. Passionate about backend development, system design, and clean code.",
-                'btn-work': "View My Work",
-                'btn-contact': "Get in Touch",
-                'prof-label': "Professional",
-                'prof-title': "Experience & Expertise",
-                'prof-content': "As an experienced developer, I focus on building backend systems that are scalable, maintainable, and performant. I have extensive experience with multiple programming languages and architectural patterns. Currently open to remote backend positions where I can contribute to meaningful projects.",
-                'personal-label': "Personal",
-                'personal-title': "Life Beyond Code",
-                'personal-content': "I'm an avid reader and writer. I love traveling, exploring new cultures, and learning from different perspectives. When not coding, you'll find me with a good book or discovering hidden gems around the world.",
-                'connect-title': "Let's Connect",
-                footer: "© 2025 Osama Abderahman. All rights reserved."
-            },
-            ar: {
-                logo: "أو أ",
-                name: "أسامة عبدالرحمن",
-                title: "مهندس برمجيات أول",
-                intro: "بناء أنظمة قابلة للتوسع وقوية تحل المشاكل الحقيقية. شغوف بتطوير الواجهات الخلفية وتصميم الأنظمة والكود النظيف.",
-                'btn-work': "عرض أعمالي",
-                'btn-contact': "التواصل بي",
-                'prof-label': "احترافي",
-                'prof-title': "الخبرة والمهارات",
-                'prof-content': "كمطور ذو خبرة، أركز على بناء أنظمة خلفية قابلة للتوسع وقابلة للصيانة وعالية الأداء. لدي خبرة واسعة مع لغات برمجية متعددة وأنماط معمارية. مفتوح حالياً لمناصب تطوير خلفي عن بعد.",
-                'personal-label': "شخصي",
-                'personal-title': "الحياة خارج الكود",
-                'personal-content': "أنا قارئ وكاتب شغوف. أحب السفر واستكشاف ثقافات جديدة والتعلم من وجهات نظر مختلفة. عندما لا أكون أكتب الكود، ستجدني مع كتاب جيد أو أكتشف الجواهر المخفية حول العالم.",
-                'connect-title': "دعنا نتواصل",
-                footer: "© 2025 أسامة عبدالرحمن. جميع الحقوق محفوظة."
-            }
-        };
-
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
-
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                }
-            });
-
-            localStorage.setItem('language', lang);
-        }
-
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                setLanguage(btn.getAttribute('data-lang'));
-            });
-        });
-
-        const savedLang = localStorage.getItem('language') || 'en';
-        setLanguage(savedLang);
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 
